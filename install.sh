@@ -114,7 +114,7 @@ sudo apt-get -y -q autoremove
 
 # Start up Redshift on boot
 mkdir -p ~/.config/autostart
-wget -P ~/.config/autostart https://raw.github.com/niftylettuce/linux-mint-nodejs-hacker-setup/master/gtk-redshift.desktop
+wget -P ~/.config/autostart https://raw.github.com/niftylettuce/linux-mint-ubuntu-nodejs-hacker-setup/master/gtk-redshift.desktop
 
 # Set DNS to Google Public DNS
 sudo sed -i 's/208.67.222.222/8.8.8.8/' /etc/resolv.conf
