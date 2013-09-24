@@ -58,19 +58,19 @@ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-ke
 echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
 
 # Add Sublime Text 2 PPA
-sudo add-apt-repository ppa:webupd8team/sublime-text-2 -y
+sudo add-apt-repository -y ppa:webupd8team/sublime-text-2
 
 # Add TLP PPA
-sudo add-apt-repository ppa:linrunner/tlp -y
+sudo add-apt-repository -y ppa:linrunner/tlp
 
 # Add Variety PPA
-sudo add-apt-repository ppa:peterlevi/ppa -y
+sudo add-apt-repository -y ppa:peterlevi/ppa
 
 # Add Clementine Dev PPA
-sudo add-apt-repository ppa:me-davidsansome/clementine-dev -y
+sudo add-apt-repository -y ppa:me-davidsansome/clementine-dev
 
 # Add Node.JS PPA
-sudo add-apt-repository ppa:chris-lea/node.js -y
+sudo add-apt-repository -y ppa:chris-lea/node.js
 
 # Update repositories
 sudo apt-get -y update
