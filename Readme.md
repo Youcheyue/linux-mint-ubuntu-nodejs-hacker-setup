@@ -1,3 +1,5 @@
+[![Gittip](http://badgr.co/gittip/niftylettuce.png)](https://www.gittip.com/niftylettuce/)
+
 # Linux Mint (Ubuntu) Node.js Hacker Setup
 
 This guide is for a [Node.js](http://nodejs.org>) focused development environment for developers.
