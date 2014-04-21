@@ -117,16 +117,19 @@ sudo apt-get -y -q autoremove
 mkdir -p ~/.config/autostart
 wget -P ~/.config/autostart https://raw.github.com/niftylettuce/linux-mint-ubuntu-nodejs-hacker-setup/master/gtk-redshift.desktop
 
-# Set DNS to Google Public DNS
-sudo sed -i 's/208.67.222.222/8.8.8.8/' /etc/resolv.conf
-sudo sed -i 's/208.67.220.220/8.8.4.4/' /etc/resolv.conf
+# Remove Linux Mint DNS (this was at least in 15)
+sudo sed -i 's/nameserver 208.67.222.222//' /etc/resolv.conf
+sudo sed -i 's/nameserver 208.67.220.220//' /etc/resolv.conf
 
 # Enable UFW firewall
 sudo ufw enable
 
 # Add Brightness Hotkey Support
 # <http://ubuntuforums.org/showthread.php?t=2181534&p=12819857#post12819857>
-sudo wget -P /usr/share/X11/xorg.conf.d/20-intel.conf https://raw.github.com/niftylettuce/linux-mint-ubuntu-nodejs-hacker-setup/master/20-intel.conf
+sudo wget -q https://raw.github.com/niftylettuce/linux-mint-ubuntu-nodejs-hacker-setup/master/20-intel.conf -O /usr/share/X11/xorg.conf.d/20-intel.conf
+
+# Set Google Public DNS
+sudo wget -q https://raw.github.com/niftylettuce/linux-mint-ubuntu-nodejs-hacker-setup/master/resolv.conf -O /etc/resolv.conf
 
 # Finished
 zenity --info --text "Setup is complete.  Please follow steps #4-6 now."
