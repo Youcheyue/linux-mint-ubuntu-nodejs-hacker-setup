@@ -77,28 +77,51 @@ You could also run these instructions inside a [VirtualBox](https://www.virtualb
     # enter existing p/w (not a new one)
     sudo cryptsetup luksAddKey --key-slot 1 /dev/sda1 /root/keyfile
     ```
+
     ```bash
     # NOTE: for all below commands, replace /dev/sda1 with path to your HDD
     # the output will be value of some-uuid used below
     sudo blkid /dev/sda1
     sudo vim /etc/crypttab
     ```
+
     ```diff
     +sda1_crypt UUID=some-uuid /root/keyfile luks
     ```
+
     ```bash
     sudo mkdir -p /media/your-username/some-hdd-name
     sudo vim /etc/fstab
     ```
+
     ```diff
     +/dev/mapper/sda1_crypt /media/your-username/some-hdd-name ext4 rw 0 0
     ```
+
     ```bash
     sudo update-initramfs -u
     sudo reboot
     ```
 
 ### Notes
+
+* If you run into issues with bluetooth not working (e.g. not showing up in Pulse Audio, Sound Manager, Device List), then do the following:
+
+    ```bash
+    sudo apt-get install bluetooth blueman bluez-hcidump bluewho python-bluez  bluez-tools
+    ```
+
+    ```bash
+    sudo vim /etc/bluetooth/audio.conf
+    ```
+
+    ```diff
+    +Enable=Source,Media,Control,Sink,Gateway
+    ```
+
+    ```bash
+    sudo service bluetooth restart
+    ```
 
 * Generate passwords easily with [DuckDuckGo's random password plugin](https://duckduckgo.com/?q=random+password+strong+30)
 * [Optimize your Solid State Drive for running Linux](https://sites.google.com/site/easylinuxtipsproject/ssd).
