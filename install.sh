@@ -51,7 +51,13 @@ sudo apt-get -y -q install \
   lm-sensors \
   vagrant \
   virtualbox-dkms \
-  virtualbox
+  virtualbox \
+  virtualbox-guest-additions-iso
+
+# Install Kernel Headers
+# <https://swaeku.github.io/blog/2013/03/09/installing-vagrant-on-ubuntu-12-dot-10/>
+sudo apt-get install linux-headers-$(uname -r)
+sudo dpkg-reconfigure virtualbox-dkms
 
 # Add MongoDB repository
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
