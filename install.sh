@@ -123,7 +123,9 @@ sudo sed -i 's/208.67.220.220/8.8.4.4/' /etc/resolv.conf
 # Enable UFW firewall
 sudo ufw enable
 
+# Add Brightness Hotkey Support
+# <http://ubuntuforums.org/showthread.php?t=2181534&p=12819857#post12819857>
+sudo wget -P /usr/share/X11/xorg.conf.d/20-intel.conf https://raw.github.com/niftylettuce/linux-mint-ubuntu-nodejs-hacker-setup/master/20-intel.conf
+
 # Finished
 zenity --info --text "Setup is complete.  Please follow steps #4-6 now."
-
-# monospace font

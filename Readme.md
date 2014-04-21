@@ -23,7 +23,7 @@ If you are on a budget (e.g. $400-500), then use the following setup for a fast 
 
 The instructions below install a complete tech stack including, but not limited to:
 
-* [Linux Mint 15 Cinnamon](http://www.linuxmint.com) for the OS (based on Ubuntu 13.04 Raring Ringtail)
+* [Linux Mint 16 Petra](http://www.linuxmint.com) for the OS (based on Ubuntu 13.10 Saucy Salamander)
 * [Redshift](http://jonls.dk/redshift/) for screen color temperature adjustment
 * Microsoft core-fonts (e.g. Arial) to support [Google Chrome](http://google.com/chrome) with standard fonts
 * [Inconsolata](http://levien.com/type/myfonts/inconsolata.html) monospaced font (set as default)
