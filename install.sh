@@ -18,6 +18,7 @@ sudo apt-get -y -q install \
   python \
   curl \
   g++ \
+  localepurge \
   make \
   libssl-dev \
   curl \

@@ -68,6 +68,35 @@ You could also run these instructions inside a [VirtualBox](https://www.virtualb
 
 6. Reboot.
 
+7. (Optional)  If your SSD and HDD are LUKS encrypted, then do the following to auto-mount the drives on boot:
+
+    ```bash
+    sudo dd if=/dev/urandom of=/root/keyfile bs=1024 count=4
+    sudo chmod 0400 /root/keyfile
+    # when the next command prompts you for p/w
+    # enter existing p/w (not a new one)
+    sudo cryptsetup luksAddKey --key-slot 1 /dev/sda1 /root/keyfile
+    ```
+    ```bash
+    # NOTE: for all below commands, replace /dev/sda1 with path to your HDD
+    # the output will be value of some-uuid used below
+    sudo blkid /dev/sda1
+    sudo vim /etc/crypttab
+    ```
+    ```diff
+    +sda1_crypt UUID=some-uuid /root/keyfile luks
+    ```
+    ```bash
+    sudo mkdir -p /media/your-username/some-hdd-name
+    sudo vim /etc/fstab
+    ```
+    ```diff
+    +/dev/mapper/sda1_crypt /media/your-username/some-hdd-name ext4 rw 0 0
+    ```
+    ```bash
+    sudo update-initramfs -u
+    sudo reboot
+    ```
 
 ### Notes
 
