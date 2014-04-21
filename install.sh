@@ -21,10 +21,10 @@ sudo apt-get -y -q install \
   localepurge \
   make \
   libssl-dev \
-  curl \
   build-essential \
   openssl \
   libssl-dev \
+  unicode-data \
   git-core \
   pkg-config \
   ruby \
