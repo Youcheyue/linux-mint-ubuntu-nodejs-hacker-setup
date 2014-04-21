@@ -50,6 +50,7 @@ sudo apt-get -y -q install \
   cups-pdf \
   lm-sensors \
   vagrant \
+  virtualbox-dkms \
   virtualbox
 
 # Add MongoDB repository
