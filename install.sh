@@ -118,6 +118,7 @@ mkdir -p ~/.config/autostart
 wget -P ~/.config/autostart https://raw.github.com/niftylettuce/linux-mint-ubuntu-nodejs-hacker-setup/master/gtk-redshift.desktop
 
 # Remove Linux Mint DNS (this was at least in 15)
+sudo dpkg-reconfigure resolvconf
 sudo sed -i 's/nameserver 208.67.222.222//' /etc/resolv.conf
 sudo sed -i 's/nameserver 208.67.220.220//' /etc/resolv.conf
 
@@ -129,7 +130,11 @@ sudo ufw enable
 sudo wget -q https://raw.github.com/niftylettuce/linux-mint-ubuntu-nodejs-hacker-setup/master/20-intel.conf -O /usr/share/X11/xorg.conf.d/20-intel.conf
 
 # Set Google Public DNS
-sudo wget -q https://raw.github.com/niftylettuce/linux-mint-ubuntu-nodejs-hacker-setup/master/resolv.conf -O /etc/resolv.conf
+sudo dpkg-reconfigure resolvconf
+sudo wget -q https://raw.github.com/niftylettuce/linux-mint-ubuntu-nodejs-hacker-setup/master/resolv.conf -O /tmp/resolv.conf
+sudo mv /tmp/resolv.conf > /etc/resolv.conf
+echo "supersede domain-name-servers 8.8.8.8,8.8.4.4;" | sudo tee /etc/dhcp3/dhclient.conf
+sudo resolvconf -u
 
 # Finished
-zenity --info --text "Setup is complete.  Please follow steps #4-6 now."
+zenity --info --text "Setup is complete.  Please follow steps #4-6 now and then reboot your computer."
